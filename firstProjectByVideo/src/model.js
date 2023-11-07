@@ -1,3 +1,5 @@
+import image from './assets/image.webp'
+
 export const model = [
 	{ type: 'title', value: 'Hello World' },
 	{ type: 'text', value: 'some text description' },
@@ -6,5 +8,5 @@ export const model = [
       '22222222222',
       '33333333333'
   ] },
-  {type: 'image', value: './src/assets/image.webp' },
+  {type: 'image', value: image },
 ]

@@ -117,13 +117,17 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"model.js":[function(require,module,exports) {
+})({"assets/image.webp":[function(require,module,exports) {
+module.exports = "/image.4d2df407.webp";
+},{}],"model.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.model = void 0;
+var _image = _interopRequireDefault(require("./assets/image.webp"));
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 var model = exports.model = [{
   type: 'title',
   value: 'Hello World'
@@ -135,34 +139,52 @@ var model = exports.model = [{
   value: ['11111111111', '22222222222', '33333333333']
 }, {
   type: 'image',
-  value: './src/assets/image.webp'
+  value: _image.default
 }];
+},{"./assets/image.webp":"assets/image.webp"}],"utilus.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.col = col;
+exports.row = row;
+function row(content) {
+  return "<div class=\"row\">".concat(content, "</div>");
+}
+function col(content) {
+  return "<div class=\"col-sm\">".concat(content, "</div>");
+}
 },{}],"templates.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.columns = columns;
-exports.image = image;
-exports.text = text;
-exports.title = title;
+exports.templates = void 0;
+var _utilus = require("./utilus");
 function title(block) {
-  return " \n  <div class=\"row\">\n    <div class=\"col-sm\">\n      <h1>".concat(block.value, "</h1>\n    </div>\n  </div>\n  ");
+  return (0, _utilus.row)((0, _utilus.col)("<h1>".concat(block.value, "</h1>")));
 }
 function text(block) {
-  return "\n    <div class=\"row\">\n    <div class=\"col-sm\">\n      <p>".concat(block.value, "</p>\n    </div>\n  </div>\n\n");
+  return (0, _utilus.row)((0, _utilus.col)("<p>".concat(block.value, "</p>")));
 }
 function columns(block) {
   var html = block.value.map(function (item) {
-    return "<div class=\"col-sm\">".concat(item, "</div>");
+    return (0, _utilus.col)(item);
   }).join('');
-  return "\n  <div class=\"row\">\n   ".concat(html, ";\n  </div> \n");
+  return (0, _utilus.row)(html);
 }
 function image(block) {
-  return "\n  <div class=\"row\">\n    <img src=\"".concat(block.value, "\"/>\n  </div> \n");
+  return (0, _utilus.row)("<img src=\"".concat(block.value, "\"/>"));
 }
-},{}],"../node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
+var templates = exports.templates = {
+  title: title,
+  text: text,
+  columns: columns,
+  image: image
+};
+},{"./utilus":"utilus.js"}],"../node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
 var bundleURL = null;
 function getBundleURLCached() {
   if (!bundleURL) {
@@ -225,17 +247,10 @@ var _templates = require("./templates");
 require("./main.css");
 var site = document.querySelector('#site');
 _model.model.forEach(function (block) {
-  var html = '';
-  if (block.type === 'title') {
-    html = (0, _templates.title)(block);
-  } else if (block.type === 'text') {
-    html = (0, _templates.text)(block);
-  } else if (block.type === 'columns') {
-    html = (0, _templates.columns)(block);
-  } else if (block.type === 'image') {
-    html = (0, _templates.image)(block);
+  var toHTML = _templates.templates[block.type];
+  if (toHTML) {
+    site.insertAdjacentHTML('beforeend', toHTML(block));
   }
-  site.insertAdjacentHTML('beforeend', html);
 });
 },{"./model":"model.js","./templates":"templates.js","./main.css":"main.css"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
@@ -262,7 +277,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57576" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58627" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
