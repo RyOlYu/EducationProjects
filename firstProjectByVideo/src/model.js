@@ -1,5 +1,10 @@
 import image from './assets/image.webp'
-import {TextBlock, ImageBlock, TitleBlock, ColumnsBlock} from './classes/block'
+import {
+	TextBlock,
+	ImageBlock,
+	TitleBlock,
+	ColumnsBlock,
+} from './classes/block'
 
 export const model = [
 	new TitleBlock('Тренировочный проект на JavaScript', {
