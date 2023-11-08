@@ -125,6 +125,7 @@ module.exports = "/image.4d2df407.webp";
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.block = block;
 exports.col = col;
 exports.css = css;
 exports.row = row;
@@ -142,6 +143,9 @@ function css() {
     return "".concat(key, ": ").concat(styles[key]);
   });
   return arr.join(';');
+}
+function block(type) {
+  return "\n  <form name=\"".concat(type, "\">\n    <h5>").concat(type, "</h5>\n    <div class=\"form-group\">\n      <input class=\"form-control form-controle-sm\" name=\"massage\" placeholder=\"value\">\n    </div>\n    <div class=\"form-group\">\n      <input class=\"form-control form-controle-sm\" name=\"styles\" placeholder=\"value\">\n    </div>\n    <button type=\"submit\" class=\"btn btn-primary btn-sm\">\u0414\u043E\u0431\u0430\u0432\u0438\u0442\u044C</button>\n  </form>\n  <hr />\n  ");
 }
 },{}],"classes/block.js":[function(require,module,exports) {
 "use strict";
@@ -381,18 +385,43 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.Sidebar = void 0;
+var _utilus = require("../utilus");
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor); } }
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
 function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
 function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-var Sidebar = exports.Sidebar = /*#__PURE__*/_createClass(function Sidebar(selector) {
-  _classCallCheck(this, Sidebar);
-  this.el = document.querySelector(selector);
-  this.el.insertAdjacentHTML('beforeend', '<h1>Sidebar</h1>');
-});
-},{}],"index.js":[function(require,module,exports) {
+var Sidebar = exports.Sidebar = /*#__PURE__*/function () {
+  function Sidebar(selector) {
+    _classCallCheck(this, Sidebar);
+    this.el = document.querySelector(selector);
+    this.init();
+  }
+  _createClass(Sidebar, [{
+    key: "init",
+    value: function init() {
+      this.el.insertAdjacentHTML('beforeend', this.template);
+      this.el.addEventListener('submit', this.add);
+    }
+  }, {
+    key: "template",
+    get: function get() {
+      return [(0, _utilus.block)('text'), (0, _utilus.block)('title')].join('');
+    }
+  }, {
+    key: "add",
+    value: function add(event) {
+      event.preventDefault();
+      var type = event.target.name;
+      var value = event.target.massage.value;
+      var styles = event.target.styles.value;
+      debuggers;
+    }
+  }]);
+  return Sidebar;
+}();
+},{"../utilus":"utilus.js"}],"index.js":[function(require,module,exports) {
 "use strict";
 
 var _model = require("./model");
@@ -427,7 +456,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64224" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63051" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
