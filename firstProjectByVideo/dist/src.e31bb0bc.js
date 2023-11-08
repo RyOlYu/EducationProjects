@@ -130,16 +130,53 @@ var _image = _interopRequireDefault(require("./assets/image.webp"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 var model = exports.model = [{
   type: 'title',
-  value: 'Hello World'
-}, {
-  type: 'text',
-  value: 'some text description'
-}, {
-  type: 'columns',
-  value: ['11111111111', '22222222222', '33333333333']
+  value: 'Тренировочный проект на JavaScript',
+  options: {
+    tag: 'h2',
+    styles: {
+      background: 'linear-gradient(to right, #081630, #3873e0)',
+      color: '#fff',
+      padding: '1.5rem',
+      'text-align': 'center'
+    }
+  }
 }, {
   type: 'image',
-  value: _image.default
+  value: _image.default,
+  options: {
+    styles: {
+      padding: '1.5rem',
+      display: 'flex',
+      'justify-content': 'center',
+      'align-items': 'center'
+    },
+    imageStyles: {
+      width: '500px',
+      height: 'auto'
+    },
+    alt: 'Image'
+  }
+}, {
+  type: 'text',
+  value: "\u041F\u0440\u043E\u0435\u043A\u0442 \u0441\u043E\u0431\u0440\u0430\u043D \u043D\u0430 Parcel. \u0412\u044B\u043F\u043E\u043B\u043D\u0435\u043D \u043D\u0430 Bootstrap.",
+  options: {
+    styles: {
+      background: 'linear-gradient(to left, #f2994a, #f2c94c)',
+      padding: '1rem',
+      'font-weight': 'bold'
+    }
+  }
+}, {
+  type: 'columns',
+  value: ['Объекты сформировны динамически с помощью JavaScript', 'Стили заданы в виде параметров в объектах', 'Применены классы объектов'],
+  options: {
+    styles: {
+      background: 'linear-gradient(to bottom,  #3873e0, #081630)',
+      padding: '2rem',
+      color: '#fff',
+      'font-weight': 'bold'
+    }
+  }
 }];
 },{"./assets/image.webp":"assets/image.webp"}],"utilus.js":[function(require,module,exports) {
 "use strict";
@@ -148,12 +185,22 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.col = col;
+exports.css = css;
 exports.row = row;
 function row(content) {
-  return "<div class=\"row\">".concat(content, "</div>");
+  var styles = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
+  return "<div class=\"row\" style = '".concat(styles, "'>").concat(content, "</div>");
 }
 function col(content) {
   return "<div class=\"col-sm\">".concat(content, "</div>");
+}
+function css() {
+  var styles = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  var keys = Object.keys(styles);
+  var arr = keys.map(function (key) {
+    return "".concat(key, ": ").concat(styles[key]);
+  });
+  return arr.join(';');
 }
 },{}],"templates.js":[function(require,module,exports) {
 "use strict";
@@ -164,19 +211,24 @@ Object.defineProperty(exports, "__esModule", {
 exports.templates = void 0;
 var _utilus = require("./utilus");
 function title(block) {
-  return (0, _utilus.row)((0, _utilus.col)("<h1>".concat(block.value, "</h1>")));
+  var _block$options = block.options,
+    tag = _block$options.tag,
+    styles = _block$options.styles;
+  return (0, _utilus.row)((0, _utilus.col)("<".concat(tag, ">").concat(block.value, "</").concat(tag, ">")), (0, _utilus.css)(styles));
 }
 function text(block) {
-  return (0, _utilus.row)((0, _utilus.col)("<p>".concat(block.value, "</p>")));
+  return (0, _utilus.row)((0, _utilus.col)("<p>".concat(block.value, "</p>")), (0, _utilus.css)(block.options.styles));
 }
 function columns(block) {
-  var html = block.value.map(function (item) {
-    return (0, _utilus.col)(item);
-  }).join('');
-  return (0, _utilus.row)(html);
+  var html = block.value.map(_utilus.col).join('');
+  return (0, _utilus.row)(html, (0, _utilus.css)(block.options.styles));
 }
 function image(block) {
-  return (0, _utilus.row)("<img src=\"".concat(block.value, "\"/>"));
+  var _block$options2 = block.options,
+    imageStyles = _block$options2.imageStyles,
+    alt = _block$options2.alt,
+    styles = _block$options2.styles;
+  return (0, _utilus.row)("<img src=\"".concat(block.value, "\" alt = ").concat(alt, " style = '").concat((0, _utilus.css)(imageStyles), "'/>"), (0, _utilus.css)(styles));
 }
 var templates = exports.templates = {
   title: title,
@@ -277,7 +329,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58627" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64224" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
