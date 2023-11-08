@@ -196,7 +196,8 @@ var TitleBlock = exports.TitleBlock = /*#__PURE__*/function (_Block) {
     key: "toHTML",
     value: function toHTML() {
       var _this$options = this.options,
-        tag = _this$options.tag,
+        _this$options$tag = _this$options.tag,
+        tag = _this$options$tag === void 0 ? 'h1' : _this$options$tag,
         styles = _this$options.styles;
       return (0, _utilus.row)((0, _utilus.col)("<".concat(tag, ">").concat(this.value, "</").concat(tag, ">")), (0, _utilus.css)(styles));
     }
@@ -285,9 +286,11 @@ var model = exports.model = [new _block.TitleBlock('Тренировочный �
   alt: 'Image'
 }), new _block.TextBlock("\u041F\u0440\u043E\u0435\u043A\u0442 \u0441\u043E\u0431\u0440\u0430\u043D \u043D\u0430 Parcel. \u0412\u044B\u043F\u043E\u043B\u043D\u0435\u043D \u043D\u0430 Bootstrap.", {
   styles: {
-    background: 'linear-gradient(to left, #f2994a, #f2c94c)',
+    background: 'linear-gradient(to left, #785d0b, #f5c125)',
     padding: '1rem',
-    'font-weight': 'bold'
+    color: '#fff',
+    'font-weight': 'bold',
+    'text-align': 'center'
   }
 }), new _block.ColumnsBlock(['Объекты сформировны динамически с помощью JavaScript', 'Стили заданы в виде параметров в объектах', 'Применены классы объектов'], {
   styles: {
@@ -502,7 +505,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53259" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54078" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];

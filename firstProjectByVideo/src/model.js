@@ -32,9 +32,11 @@ export const model = [
 	}),
 	new TextBlock(`Проект собран на Parcel. Выполнен на Bootstrap.`, {
 		styles: {
-			background: 'linear-gradient(to left, #f2994a, #f2c94c)',
+			background: 'linear-gradient(to left, #785d0b, #f5c125)',
 			padding: '1rem',
+			color: '#fff',
 			'font-weight': 'bold',
+			'text-align': 'center'
 		},
 	}),
 	new ColumnsBlock(
