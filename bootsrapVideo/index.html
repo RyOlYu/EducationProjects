@@ -1,34 +1,146 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <link rel="stylesheet" href="./css/bootstrap.min.css">
-  <link rel="stylesheet" href="./img/favicon.ico" type="image/x-icon">
-  <link rel="stylesheet" href="./css/fontello.css">
-  <link rel="stylesheet" href="./css/style.css">
-  <title>BootstrapVideo</title>
-</head>
-<body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<header>
-  <div class="container">
-    <div class="row">
-      <div class="col-12">
-        <h1 class="text-center text-white">видео курс по верстке на bootstrap</h1>
-        <div class="itd_play">
-          <div class="itd_triangle"></div>
+		<link rel="stylesheet" href="./css/bootstrap.min.css" />
+		<link rel="stylesheet" href="./img/favicon.ico" type="image/x-icon" />
+		<link rel="stylesheet" href="./css/fontello.css" />
+		<link rel="stylesheet" href="./css/style.css" />
+		<title>BootstrapVideo</title>
+	</head>
+	<body>
+		<header>
+			<div class="container">
+				<div class="row">
+					<div class="col-12">
+						<h1 class="text-center text-white">
+							видео курс по верстке на bootstrap
+						</h1>
+						<div
+							class="itd_play"
+							data-bs-toggle="modal"
+							data-bs-target="#myModal"
+						>
+							<div class="itd_triangle"></div>
+						</div>
+						<a href="#footer" class="btn btn_itd btn-lg text-uppercase"
+							>Заказать</a
+						>
+					</div>
+				</div>
+			</div>
+		</header>
+    <section class="about">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <h2 class="text-center text-uppercase color1">О курсе</h2>            
+          </div>
         </div>
-        <a href="#footer" class="btn btn_itd btn-lg text-uppercase">Заказать</a>
+        <div class="row">
+          <div class="col-xl-4 col-md-6 col-cm-12">
+            <div class="itd_circle"><i class="icon-list-numbered"></i></div>
+            <h5 class="text-center">Структурированный материал</h5>
+            <div class="line"></div>
+          </div>
+          <div class="col-xl-4 col-md-6 col-cm-12">
+            <div class="itd_circle"><i class="icon-list-numbered"></i></div>
+            <h5 class="text-center">Структурированный материал</h5>
+            <div class="line"></div>
+          </div>
+          <div class="col-xl-4 col-md-6 col-cm-12">
+            <div class="itd_circle"><i class="icon-list-numbered"></i></div>
+            <h5 class="text-center">Структурированный материал</h5>
+            <div class="line"></div>
+          </div> 
+          <div class="col-xl-4 col-md-6 col-cm-12">
+            <div class="itd_circle"><i class="icon-list-numbered"></i></div>
+            <h5 class="text-center">Структурированный материал</h5>
+            <div class="line"></div>
+          </div> 
+          <div class="col-xl-4 col-md-6 col-cm-12">
+            <div class="itd_circle"><i class="icon-list-numbered"></i></div>
+            <h5 class="text-center">Структурированный материал</h5>
+            <div class="line"></div>
+          </div> 
+          <div class="col-xl-4 col-md-6 col-cm-12">
+            <div class="itd_circle"><i class="icon-list-numbered"></i></div>
+            <h5 class="text-center">Структурированный материал</h5>
+            <div class="line"></div>
+          </div> 
+          <div class="col-xl-4 col-md-6 col-cm-12">
+            <div class="itd_circle"><i class="icon-list-numbered"></i></div>
+            <h5 class="text-center">Структурированный материал</h5>
+            <div class="line"></div>
+          </div> 
+          <div class="col-xl-4 col-md-6 col-cm-12">
+            <div class="itd_circle"><i class="icon-list-numbered"></i></div>
+            <h5 class="text-center">Структурированный материал</h5>
+            <div class="line"></div>
+          </div> 
+          <div class="col-xl-4 col-md-6 col-cm-12">
+            <div class="itd_circle"><i class="icon-list-numbered"></i></div>
+            <h5 class="text-center">Структурированный материал</h5>
+            <div class="line"></div>
+          </div> 
+                  
+        </div>
       </div>
-    </div>
-  </div>
-</header>
+    </section>
 
-<div id="footer">
-  
-</div>
-<script src="./js/bootstrap.bundle.min.js"></script>
-</body>
+		<div id="footer"></div>
+
+		<div
+			class="modal fade"
+			id="myModal"
+			tabindex="-1"
+			aria-labelledby="exampleModalLabel"
+			aria-hidden="true"
+		>
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+						<button
+							type="button"
+							class="btn-close"
+							data-bs-dismiss="modal"
+							aria-label="Close"
+						></button>
+					</div>
+					<div class="modal-body">
+						<style>
+							.embed-container {
+								position: relative;
+								padding-bottom: 56.25%;
+								height: 0;
+								overflow: hidden;
+								max-width: 100%;
+							}
+
+							.embed-container iframe,
+							.embed-container object,
+							.embed-container embed {
+								position: absolute;
+								top: 0;
+								left: 0;
+								width: 100%;
+								height: 100%;
+							}
+						</style>
+						<div class="embed-container">
+							<iframe
+								src="https://www.youtube.com/embed/undefined"
+								frameborder="0"
+								allowfullscreen
+							></iframe>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="./js/bootstrap.bundle.min.js"></script>
+	</body>
 </html>
