@@ -1,0 +1,11 @@
+{
+  "name": "bootstrap",
+  "version": "1.0.0",
+  "description": "reapeat by video",
+  "main": "index.html",
+  "scripts": {
+    "test": "start"
+  },
+  "author": "",
+  "license": "ISC"
+}
