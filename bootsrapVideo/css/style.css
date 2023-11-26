@@ -3,8 +3,11 @@
   --color2: #52339a;
 }
 
-header,
-footer,
+
+footer{
+  padding: 30px 0;
+}
+
 section {
   padding: 100px 0;
 }
@@ -13,8 +16,7 @@ header {
   padding: 200px 0;
 }
 
-header,
-footer {
+header,footer {
   background: var(--color1);
   background: url(../img/pattern.png), linear-gradient(to right, var(--color1) 0%, var(--color2) 100%);
   background-size: contain;
@@ -61,7 +63,7 @@ footer {
 
 /* О курсе*/
 
-.about, .shedule {
+.about, .shedule, .author{
   background-color: #eee;
 }
 
@@ -98,6 +100,13 @@ footer {
 
 }
 
+/*Форма оплаты*/
+.buyForm{
+  background-color: var(--color1);
+  width: 300px;  
+  height: 300px;
+}
+
 /*Программа курса*/
 
 .accordion-button:not(.collapsed){
@@ -107,6 +116,21 @@ footer {
     "data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e")
 }
 
+/*Процесс обучения*/
+
+.learning h5{
+  padding: 25px;
+  border: 3px solid var(--color1);
+}
+
+/*Об авторе*/
+.itd_img{
+  min-width: 260px;
+}
+
+.author{
+  padding-bottom: 0;
+}
 
 /* Цвет*/
 
